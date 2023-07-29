@@ -5,7 +5,8 @@ const initialState = {
     name: "Kishore Kongani",
     address:
       "flat no: 1234, Apartment: xyz, near abc showroom, Andhra Pradesh, pincode: 12345",
-    preferredPaymentMode: "phonepe",
+    preferredPaymentMode: "",
+    email: "laxmikishore@gmail.com",
     Password: "abcdef",
   },
 };

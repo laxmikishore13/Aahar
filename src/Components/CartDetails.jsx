@@ -7,6 +7,7 @@ import PaymentCardCheckout from "./PaymentCardCheckout";
 const CartDetails = () => {
   const cart = useSelector((state) => state.cart.items);
   const restaurant = useSelector((state) => state.restaurant.restaurant);
+  console.log(cart);
   return cart?.length > 0 ? (
     <Box sx={{ mt: 5, p: 5 }}>
       <Container
@@ -15,12 +16,7 @@ const CartDetails = () => {
       >
         <Box>
           {cart?.map((cartItem) => {
-            return (
-              <CheckoutCard
-                restaurants={cartItem?.payload}
-                key={cartItem?.payload.id}
-              />
-            );
+            return <CheckoutCard restaurants={cartItem} key={cartItem?.id} />;
           })}
         </Box>
         <PaymentCardCheckout restaurant={restaurant[0]?.payload} cart={cart} />

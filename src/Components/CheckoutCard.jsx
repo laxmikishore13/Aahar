@@ -8,10 +8,10 @@ const CheckoutCard = ({ restaurants }) => {
   const { name, price } = restaurants;
   const dispatch = useDispatch();
   const addCuisine = (item) => {
-    const items = dispatch(addItem(item));
+    dispatch(addItem(item));
   };
-  const deleteCuisine = () => {
-    dispatch(deleteItem());
+  const deleteCuisine = (item) => {
+    dispatch(deleteItem(item));
   };
   return (
     <div>
@@ -33,7 +33,7 @@ const CheckoutCard = ({ restaurants }) => {
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "space-around" }}>
               <Button onClick={() => addCuisine(restaurants)}>Add</Button>
-              <Button onClick={() => deleteCuisine()}>Remove</Button>
+              <Button onClick={() => deleteCuisine(restaurants)}>Remove</Button>
             </Box>
           </Box>
         </CardContent>

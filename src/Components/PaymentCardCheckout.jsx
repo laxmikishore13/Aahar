@@ -17,7 +17,7 @@ const PaymentCardCheckout = ({ restaurant, cart }) => {
   useEffect(() => {
     let amount = 0;
     cart?.map((cartItem, i) => {
-      let price = cartItem.payload.price / 100;
+      let price = cartItem.price / 100;
       return (amount += price);
     });
     setTotalAmount(amount);
@@ -58,14 +58,14 @@ const PaymentCardCheckout = ({ restaurant, cart }) => {
                   noWrap={true}
                   sx={{ fontSize: "15px", fontWeight: "500" }}
                 >
-                  {cart?.payload.name}
+                  {cart?.name}
                 </Typography>
                 <Typography
                   gutterBottom
                   noWrap={true}
                   sx={{ fontSize: "15px", fontWeight: "500" }}
                 >
-                  {cart?.payload.price / 100 + " /-"}
+                  {cart?.price / 100 + " /-"}
                 </Typography>
               </Box>
             );

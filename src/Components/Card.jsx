@@ -14,8 +14,16 @@ import { addItem, deleteItem } from "../Utils/CartSlice";
 import { useDispatch } from "react-redux";
 
 const Cards = ({ restaurants }) => {
-  const { name, cuisines, avgRating, cloudinaryImageId, price, imageId } =
-    restaurants;
+  const {
+    name,
+    cuisines,
+    avgRating,
+    cloudinaryImageId,
+    price,
+    imageId,
+    quantity,
+  } = restaurants;
+  console.log(name, cuisines, avgRating, cloudinaryImageId, price, quantity);
   const dispatch = useDispatch();
   const addCuisine = (item) => {
     dispatch(addItem(item));
@@ -63,7 +71,7 @@ const Cards = ({ restaurants }) => {
                 variant="outlined"
                 onClick={() => addCuisine(restaurants)}
               >
-                Add
+                {quantity ? "+" : "Add"}
               </Button>
             </Box>
           ) : null}

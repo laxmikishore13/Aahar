@@ -63,11 +63,23 @@ const Cardcontainer = () => {
     if (data.data.cards) {
       if (search.length > 0) {
         const searchedRestaurants = searchRestaurants(data.data.cards, search);
-        setRestaurants((prev) => [...prev, ...data?.data?.cards]);
+        setRestaurants((prev) => [
+          ...prev,
+          ...data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants,
+        ]);
         setFilteredRestaurants((prev) => [...prev, ...searchedRestaurants]);
       } else {
-        setRestaurants((prev) => [...prev, ...data?.data?.cards]);
-        setFilteredRestaurants((prev) => [...prev, ...data?.data?.cards]);
+        setRestaurants((prev) => [
+          ...prev,
+          ...data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants,
+        ]);
+        setFilteredRestaurants((prev) => [
+          ...prev,
+          ...data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants,
+        ]);
       }
       setLoading(false);
     } else {
@@ -105,8 +117,8 @@ const Cardcontainer = () => {
         >
           {filteredRestaurants.map((restaurant, index) => {
             return (
-              <Link to={"/restaurant/" + restaurant.data.data.id} key={index}>
-                <Cards restaurants={restaurant.data.data} />
+              <Link to={"/restaurant/" + restaurant?.info?.id} key={index}>
+                <Cards restaurants={restaurant?.info} />
               </Link>
             );
           })}

@@ -37,7 +37,12 @@ const AccountDetails = () => {
             />
             <TextField
               fullWidth
-              label="Password: "
+              label={userInfo.email ? userInfo.email : "email: "}
+              id="fullWidth"
+            />
+            <TextField
+              fullWidth
+              label="Password: *******"
               id="fullWidth"
               type="password"
               autoComplete="current-password"
